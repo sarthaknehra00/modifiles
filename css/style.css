@@ -1153,7 +1153,9 @@ button {
    ========================================================================== */
 @media (max-width: 768px) {
   body {
-    overflow-x: hidden; /* Prevent horizontal scrollbar on body */
+    overflow-x: hidden;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .container {
@@ -1161,169 +1163,273 @@ button {
   }
 
   /* Header & Brand */
+  .site-header {
+    border-bottom: 1px solid var(--border-strong);
+  }
   .header-inner {
-    height: 60px;
+    height: 56px;
   }
   .brand-title {
-    font-size: 1.15rem;
-    letter-spacing: 0.04em;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
   }
   .brand-badge {
-    padding: 0.15rem 0.45rem;
-    font-size: 0.6rem;
-  }
-  .tool-btn span {
-    display: none; /* Hide tool text on mobile icons to conserve space */
+    padding: 0.15rem 0.4rem;
+    font-size: 0.58rem;
   }
   .tool-btn {
-    padding: 0.45rem;
+    padding: 0.4rem;
+    border-radius: var(--radius-sm);
+  }
+  .tool-btn span {
+    display: none;
   }
 
   /* Screen Selector Pills Bar */
   .screen-selector-bar {
-    top: 60px;
+    top: 56px;
+    padding: 0.4rem 0;
   }
   .screen-pills {
-    padding: 0 0.75rem;
-    gap: 0.3rem;
-  }
-  .screen-pills::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for clean touch swipe */
+    padding: 0 0.5rem;
+    gap: 0.25rem;
   }
   .screen-pill {
-    padding: 0.35rem 0.65rem;
-    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    border-radius: var(--radius-sm);
+  }
+  .screen-pill-id {
+    display: none; /* Hide screen ID hashes on mobile to keep clean */
   }
 
   /* Hero Dossier Section */
   .hero-dossier {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
+  }
+  .hero-grid {
+    gap: 1.5rem;
   }
   .hero-title {
-    font-size: 1.85rem;
-    line-height: 1.3;
-    margin-bottom: 0.75rem;
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    text-align: center;
   }
   .hero-lead {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: center;
   }
   .dossier-header-meta {
-    gap: 0.5rem;
-    font-size: 0.7rem;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.68rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
   }
   .tripartite-legend-banner {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
-    padding: 1rem;
+    gap: 0.6rem;
+    padding: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .stat-card {
+    padding: 0.6rem 0.4rem;
+  }
+  .stat-number {
+    font-size: 1.35rem;
+  }
+  .stat-label {
+    font-size: 0.58rem;
+  }
+
+  /* Video Reel Card */
+  .hero-video-reel-card {
+    padding: 8px;
+    border-radius: var(--radius-md);
+  }
+  .hero-video-reel-card::before {
+    display: none; /* Remove bulky tape decorations on mobile */
+  }
+  .reel-header-bar {
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+  }
+  .hero-video-frame {
+    max-height: 240px;
+  }
+  .reel-caption-meta {
+    font-size: 0.68rem;
   }
 
   /* Arc Dossier Sections */
+  .merged-dossier-container {
+    gap: 2.5rem;
+    padding: 2rem 0 4rem;
+  }
   .arc-dossier-section {
-    scroll-margin-top: 115px;
+    border-radius: var(--radius-md);
+    scroll-margin-top: 110px;
   }
   .arc-dossier-header {
-    padding: 1.25rem 1.25rem;
-  }
-  .arc-main-title {
-    font-size: 1.5rem;
-  }
-  .arc-subtitle-text {
-    font-size: 0.95rem;
-  }
-  .arc-dossier-body {
-    padding: 1.5rem 1.25rem;
-  }
-  .arc-overview-prose {
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  /* Asymmetric Collage: Force straightening to prevent container edge overflow */
-  .collage-item {
-    transform: rotate(0deg) !important;
-    padding: 8px 8px 12px 8px;
-  }
-  .collage-item::before {
-    width: 45px;
-    height: 14px;
-    top: -6px;
-  }
-  .arc-photos-collage {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  /* Stacked Tripartite Columns */
-  .tripartite-grid {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-    padding: 0.6rem;
-    background: var(--bg-subtle);
-    border-radius: var(--radius-md);
-  }
-  .tripartite-col {
-    padding: 1.15rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-subtle);
-    border-right: none !important;
-  }
-
-  /* Wide SVG Chronologies: Allow smooth horizontal swipe panning */
-  .chart-svg-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 4px;
-    border: 1px solid var(--border-subtle);
-  }
-  .chart-svg-wrapper svg {
-    min-width: 680px; /* Force minimum width to keep details crisp on mobile viewport */
-  }
-
-  /* Modals */
-  .modal-dialog {
-    width: 94%;
-    max-height: 90vh;
-  }
-  .lightbox-dialog {
-    width: 98%;
-  }
-
-  /* Footer */
-  .site-footer {
-    padding: 3rem 0 2rem;
-  }
-  .footer-bottom {
-    font-size: 0.7rem;
+    padding: 1rem;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
     gap: 0.5rem;
   }
-}
+  .arc-main-title {
+    font-size: 1.35rem;
+  }
+  .arc-subtitle-text {
+    font-size: 0.88rem;
+  }
+  .dossier-stamp {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.45rem;
+  }
+  .arc-dossier-body {
+    padding: 1.25rem 1rem;
+  }
+  .arc-overview-prose {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
 
-/* Specific adjustments for narrow phone screens (max-width: 480px) */
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.65rem;
+  /* Collages */
+  .arc-photos-collage {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0;
   }
-  .stat-card {
-    padding: 0.75rem 0.5rem;
+  .collage-item {
+    transform: rotate(0deg) !important;
+    padding: 8px;
+    border-radius: var(--radius-sm);
   }
-  .stat-number {
-    font-size: 1.45rem;
+  .collage-item::before {
+    display: none; /* Remove tape overlays on mobile for simplicity */
   }
-  .stat-label {
-    font-size: 0.6rem;
+  .collage-img-frame {
+    max-height: 280px;
+  }
+  .collage-caption-text {
+    font-size: 0.8rem;
+  }
+
+  /* Video Evidence Card */
+  .video-evidence-card {
+    padding: 0.75rem;
+    margin: 1.25rem 0;
+  }
+  .video-player-frame {
+    max-height: 220px;
+  }
+
+  /* Timelines */
+  .events-timeline-block {
+    padding: 1rem;
+    margin: 1.25rem 0;
   }
   .events-list {
-    padding-left: 0.95rem;
+    gap: 0.85rem;
+    padding-left: 0.85rem;
   }
   .event-headline {
     font-size: 0.9rem;
   }
   .event-text {
     font-size: 0.82rem;
+  }
+
+  /* Tripartite Stacked Cards */
+  .tripartite-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.4rem;
+  }
+  .tripartite-col {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle) !important;
+  }
+  .col-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+  }
+  .col-text {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  /* SVG Chronologies */
+  .chart-svg-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .chart-svg-wrapper svg {
+    min-width: 600px;
+    height: 140px;
+  }
+
+  /* Citations Footer */
+  .arc-footer-sources {
+    padding: 1rem;
+  }
+  .sources-list {
+    gap: 0.35rem;
+  }
+  .source-item-pill {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  /* Modals */
+  .modal-dialog {
+    width: 95%;
+    max-height: 85vh;
+  }
+  .modal-body {
+    padding: 1rem;
+  }
+  .search-result-card {
+    padding: 0.85rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 2.5rem 0 1.5rem;
+  }
+  .footer-grid {
+    gap: 1.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.68rem;
+    text-align: center;
+  }
+}
+
+/* Narrow Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.45rem;
+  }
+  .hero-lead {
+    font-size: 0.88rem;
+  }
+  .hero-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .brand-title {
+    font-size: 1rem;
   }
 }
